@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home page</title>
 </head>
 <body>
+
+    {% for message in messages %}
+    <div class="alert alert={{ messages.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong> {{ memessgae }}
+        <button></button>
+        <span></span>
+    </div>
     <h1>Welcome To David apps</h1>
+    {% if user.is_authenticated %}
+    <h3>Hello {{ fname }}</h3>
+    <h4>You're successfully logged in. </h4>
     <button type="submit"> <a href="signup"> Signup</a></button>
     <br>
      <button type="submit" style="margin-top: 10px"><a href="signin"> Signin</a></button>
