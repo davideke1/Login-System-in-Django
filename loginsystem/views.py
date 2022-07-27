@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from system import settings
+from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -48,11 +48,12 @@ def signup(request):
         messages.success(request, "Your account has been successfully created.")
 
         #emailing
+
         subject = "Welcome To david apps"
-        message = "Hello " +myuser.first_name + "!! \n" + "Welcome to David apps we serve you the best\nWe have sent a confirmation email confirm your email address to activate your account.\nThanks\n David."
+        message = "Hello " +myuser.first_name + "!! \n" + "Welcome to David apps we serve you the best\nWe have sent a confirmation email confirm your email address to activate your account.\nThanks\nDavid."
         from_email = settings.EMAIL_HOST_USER
         to_list = [myuser.email]
-        send_mail(subject, message,from_email, to_list, fail_silently=True)
+        send_mail(subject, message,from_email, to_list, fail_silently=False)
 
         return redirect('signin')
     return render(request, "loginsystem/signup.html")
