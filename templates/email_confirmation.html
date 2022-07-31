@@ -1,0 +1,8 @@
+{% autoescape off %}
+
+Welcome to David Login
+
+Please confirm your email by clicking on the following link
+
+confirmation link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}
